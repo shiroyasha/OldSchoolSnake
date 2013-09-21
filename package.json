@@ -1,0 +1,27 @@
+{
+  "name": "Snake",
+  "version": "0.1.0",
+  "description": "Snake",
+  "repository": {
+    "type": "git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-coffeelint": "0.0.7",
+    "grunt-contrib-compass": "~0.5.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-wrap": "~0.3.0",
+    "grunt-notify": "~0.2.13",
+    "grunt-express": "~1.0.0-beta2",
+    "grunt-exec": "~0.4.2",
+    "grunt-open": "~0.2.2"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8"
+  }
+}

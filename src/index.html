@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Old School Snake</title>
+
+	<link href="/css/screen.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body lang='en'>
+
+	<div class='container size-40x30'>
+
+		<div id='mainMenu' class='menu'>
+			<h1>OLD SCHOOL SNAKE</h1>
+
+			<ul class='items'>
+				<li data-goto='#difficultyMenu'>START GAME</li>
+				<li data-goto='#optionsMenu'>OPTIONS</li>
+				<li data-goto='#highscoreMenu'>HIGHSCORES</li>
+				<li data-goto='#aboutMenu'>ABOUT</li>
+			</ul>
+		</div>
+
+		<div id='difficultyMenu' class='menu'>
+			<h1>CHOOSE DIFFICULTY</h1>
+
+			<ul class='items'>
+				<li data-goto='#game'>hard</li>
+				<li data-goto='#game'>extreme</li>
+				<li data-goto='#game'>impossible</li>
+				<li data-goto='#mainMenu'>back</li>
+			</ul>
+		</div>
+
+		<div id='optionsMenu' class='menu'>
+			<h1>OPTIONS</h1>
+
+			<ul class='items'>
+				<li data-goto='#soundController'>sounds</li>
+				<li data-goto='#colorController'>colors</li>
+				<li data-goto='#mainMenu'>back</li>
+			</ul>
+		</div>
+
+
+		<div id='soundController'>
+			<h1>SOUND</h1>
+
+			<div class='wrap'>
+				<div class='fill'></div>
+			</div>
+
+			<ul class='items'>
+				<li class='active'  data-action data-goto='#optionsMenu'>back</li>
+			</ul>
+		</div>
+
+		<div id='colorController'>
+			<h1>Color</h1>
+
+			<ul class='colors'>
+				<li class='color'></li>
+				<li class='color'></li>
+				<li class='color'></li>
+				<li class='color'></li>
+			</ul>
+
+			<ul class='items'>
+				<li class='active'  data-action data-goto='#optionsMenu'>back</li>
+			</ul>
+		</div>
+
+
+		<div id='aboutMenu' class='optionScreen'>
+			<h1>About</h1>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, consequuntur nulla nesciunt architecto ullam illo enim ad distinctio. Harum reprehenderit dignissimos tempore corporis expedita debitis necessitatibus deserunt aut. Nam, saepe!</p>
+
+			<ul class='items'>
+				<li class='active'  data-action data-goto='#mainMenu'>back</li>
+			</ul>
+		</div>
+
+		<div id='highscoreMenu' class='optionScreen'>
+			<h1>highscore list</h1>
+
+			<ul>
+				<li>Mike</li>
+				<li>Peter</li>
+				<li>Ann</li>
+				<li>Pip</li>
+			</ul>
+
+			<ul class='items'>
+				<li class='active' data-action data-goto='#mainMenu'>back</li>
+			</ul>
+		</div>
+
+		<canvas id='game'></canvas>
+
+	</div>
+
+	<script type="text/javascript" src='/vendor/jquery-1.10.2.min.js'></script>
+	<script type="text/javascript" data-main='/js/app.js' src='/vendor/require.js'></script>
+</body>
+</html>
