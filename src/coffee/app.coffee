@@ -98,6 +98,35 @@ class ColorController extends OptionScreen
   right: -> @_switchTo( mod( @value+1, @count) )
 
 
+class FPSCounter
+  constructor: (@update_constant = 3000)->
+    console.log 'start'
+    @_reset()
+
+  _reset: ->
+    @_frames = 0
+
+    @_min = Number.POSITIVE_INFINITY
+    @_avg = 0
+    @_max = Number.NEGATIVE_INFINITY
+
+  update: ( delta ) ->
+    @_frames += 1
+    @_avg += delta
+
+    @_min = Math.min( @_min, ~~(1000/delta) )
+    @_max = Math.max( @_max, ~~(1000/delta) )
+
+    @_fps = @_avg / @_frames
+
+    if @_avg > @update_constant
+      console.log 'fps:', ~~@_fps, 'min:', @_min, 'max:', @_max
+      @_reset()
+
+
+
+fps = new FPSCounter()
+
 
 class Timer
   constructor: ->
@@ -117,7 +146,8 @@ class Timer
   pause: ->
     clearTimeout @_timer
 
-  step: (delta) -> console.log('delta', delta)
+  step: (delta) ->
+    fps.update(delta)
 
 
 
