@@ -36,10 +36,16 @@ module.exports = (grunt) ->
       app:
         src: ['src/coffee/**/*.coffee']
 
-    compass:
+    sass:
       dev:
+        expand: true
+        cwd: 'src/sass'
+        src: ['**/*.scss', '!**/_*.scss']
+        dest: 'build/css'
+        ext: '.css'
+
         options:
-          config: 'config.rb'
+          compass: true
 
     coffee:
       dev:
@@ -97,7 +103,7 @@ module.exports = (grunt) ->
 
       dev_sass:
         files: ['src/sass/**/*.scss']
-        tasks: ['clean:dev_sass','compass:dev', 'notify:dev']
+        tasks: ['clean:dev_sass','sass:dev', 'notify:dev']
 
       dev_images:
         files: ['src/images/**/*']
@@ -116,6 +122,7 @@ module.exports = (grunt) ->
 
         options:
           livereload: true
+          event: ['added', 'changed']
 
     notify:
       dev:
@@ -129,20 +136,12 @@ module.exports = (grunt) ->
           port: 3000
           bases: ['build']
 
-    open:
-      sublime:
-        path: '.'
-        app: 'subl'
-
-      chrome:
-        path: 'http://localhost:3000'
-
 
 
   # Load the plugins
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-coffeelint')
-  grunt.loadNpmTasks('grunt-contrib-compass')
+  grunt.loadNpmTasks('grunt-contrib-sass')
   grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-watch')
@@ -151,7 +150,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-express')
   grunt.loadNpmTasks('grunt-open')
 
-  grunt.registerTask('igor', ['express:all','open:sublime', 'open:chrome', 'watch'])
+  grunt.registerTask('igor', ['express:all', 'watch'])
 
   # Watch task, defaults to the default task
   # grunt.registerTask('watch', ['development'])

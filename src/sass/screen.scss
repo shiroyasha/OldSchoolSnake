@@ -9,7 +9,6 @@
 @import "compass";
 @import "font-awesome/font-awesome";
 
-
 body,html {
 	background-color: #fff;
 	height: 100%;
@@ -36,6 +35,12 @@ $food-color:       #c36;
 	height: 30 * $box-size + 30 * 2 * $box-margin;
 }
 
+
+.container > * {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 
 
 .box {

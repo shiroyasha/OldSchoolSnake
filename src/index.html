@@ -11,7 +11,12 @@
 
 <body lang='en'>
 
-	<div class='container size-40x30'>
+	<section>
+		<h1>Project Ramen</h1>
+
+		<div class='container size-40x30'>
+		<canvas id='bg'></canvas>
+		<canvas id='game'></canvas>
 
 		<div id='mainMenu' class='menu'>
 			<h1>OLD SCHOOL SNAKE</h1>
@@ -98,12 +103,16 @@
 				<li class='active' data-action data-goto='#mainMenu'>back</li>
 			</ul>
 		</div>
+		</div>
 
-		<canvas id='game'></canvas>
+	</section>
 
+	<div>
+		<input id='snakeSpeed' type='range' min=1 max=200 value=20>
 	</div>
 
 	<script type="text/javascript" src='/vendor/jquery-1.10.2.min.js'></script>
+	<script type="text/javascript" src='/vendor/patternizer.js'></script>
 	<script type="text/javascript" data-main='/js/app.js' src='/vendor/require.js'></script>
 </body>
 </html>
